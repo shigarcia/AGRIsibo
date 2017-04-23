@@ -37,7 +37,6 @@ exports.login = function(req, res, next) {
 	validatelogin();
 };
 
-// Logout as a faculty user
 exports.logout = function(req, res, next) {
     function validatelogout() {
 
