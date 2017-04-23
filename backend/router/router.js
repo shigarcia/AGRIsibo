@@ -2,7 +2,8 @@ var users = require('../controller/users');
 var posts = require('../controller/posts');
 var comments = require('../controller/comments');
 var answers = require('../controller/answers');
-var authenticate = require('../controller/authenticate')
+var authenticate = require('../controller/authenticate');
+var check_session = require('../config/session');
 
 module.exports = function(router) {	
 
@@ -11,7 +12,7 @@ module.exports = function(router) {
 	//authenticate routes
 
 	router.post('/authenticate/login', authenticate.login);
-	router.get('/authenticate/logout', authenticate.logout);
+	router.get('/authenticate/logout', check_session, authenticate.logout);
 
 	router.post('/users/createUserAccounts/', users.createUserAccount);
 	router.get('/users/getAllUserAccounts/', users.getAllUserAccounts);
