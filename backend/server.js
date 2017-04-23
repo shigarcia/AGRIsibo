@@ -2,11 +2,22 @@
 
 const body_parser   = require('body-parser');   
 const express       = require('express');
+const session       = require('express-session');
 
 let app = express();
 
 app.set('case sensitive routing', true);
 app.set('x-powered-by', false);
+
+app.use(session({
+    resave: false,
+    saveUninitialized: true,
+    secret: 'agri',
+    cookie: {
+        maxAge: 60 * 1000 * 60 * 100  // Equivalent to 2 hours
+    }
+}));
+
 app.use(body_parser.urlencoded({extended: true}));
 app.use(body_parser.json());
 app.use(express.static(__dirname + '/../frontend'));

@@ -19,7 +19,7 @@ CREATE TABLE user_accounts(
 DROP TABLE IF EXISTS posts;
 CREATE TABLE posts(
 	post_id 			int NOT NULL AUTO_INCREMENT,
-	post_location		varchar(256) NOT NULL,
+	post_content		text NOT NULL,
 	post_date			date NOT NULL,
 	user_id				int NOT NULL,
 	PRIMARY KEY			(post_id),
@@ -31,7 +31,7 @@ CREATE TABLE posts(
 DROP TABLE IF EXISTS comments;
 CREATE TABLE comments(
 	comment_id 			int NOT NULL AUTO_INCREMENT,
-	comment_location	varchar(256) NOT NULL,
+	comment_content		text NOT NULL,
 	comment_date		date NOT NULL,
 	user_id				int NOT NULL,
 	post_id				int NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE comments(
 DROP TABLE IF EXISTS answers;
 CREATE TABLE answers(
 	answer_id 			int NOT NULL AUTO_INCREMENT,
-	answer_location		varchar(256) NOT NULL,
+	answer_content		text NOT NULL,
 	answer_date			date NOT NULL,
 	user_id				int NOT NULL,
 	post_id				int NOT NULL,
@@ -65,17 +65,11 @@ INSERT INTO user_accounts(first_name, middle_name, last_name, email, username, p
 INSERT INTO user_accounts(first_name, middle_name, last_name, email, username, password, member_since)
 	VALUES('Jose', 'Protacio', 'Rizal', 'joserizal@gmail.com', 'jrizal', '1234', CURDATE());
 
-INSERT INTO posts(post_location, post_date, user_id)
-	VALUES('/components/posts/post001.txt', CURDATE(), 1);
-INSERT INTO posts(post_location, post_date, user_id)
-	VALUES('/components/posts/post002.txt', CURDATE(), 2);
+INSERT INTO posts(post_content, post_date, user_id)
+	VALUES('This is a sample post', CURDATE(), 1);
 
-INSERT INTO comments(comment_location, comment_date, user_id, post_id)
-	VALUES('/components/comments/comment001.txt', CURDATE(), 1, 1);
-INSERT INTO comments(comment_location, comment_date, user_id, post_id)
-	VALUES('/components/comments/comment002.txt', CURDATE(), 2, 2);
+INSERT INTO comments(comment_content, comment_date, user_id, post_id)
+	VALUES('This is a sample comment', CURDATE(), 1, 1);
 
-INSERT INTO answers(answer_location, answer_date, user_id, post_id)
-	VALUES('/components/answers/answer001.txt', CURDATE(), 1, 1);
-INSERT INTO answers(answer_location, answer_date, user_id, post_id)
-	VALUES('/components/answers/answer002.txt', CURDATE(), 2, 2);
+INSERT INTO answers(answer_content, answer_date, user_id, post_id)
+	VALUES('This is a sample answer', CURDATE(), 1, 1);
