@@ -1,0 +1,22 @@
+{
+  "name": "AGRIsibo",
+  "version": "1.0.0",
+  "description": "a web-based crowdsourcing application for Filipino agriculturists and farmers",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shigarcia/AGRIsibo.git"
+  },
+  "author": "cmsc100",
+  "license": "ISC",
+  "homepage": "https://github.com/shigarcia/AGRIsibo#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mysql": "^2.13.0",
+    "nodemon": "^1.11.0"
+  }
+}
