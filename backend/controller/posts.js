@@ -41,3 +41,13 @@ exports.getByUserId = function(req, res){
 		res.status(200).send(result);
 	}) 
 };
+
+exports.getPostsByUsers = function(req, res) {
+	const query = "SELECT * FROM posts WHERE user_id = ?";
+	const payload = [req.body.user_id];
+
+	db.query(query, payload, function(err, result) {
+		if (err) res.send(err);
+		res.status(200).send(result);
+	}); 
+};

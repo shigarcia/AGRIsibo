@@ -28,18 +28,21 @@ module.exports = function(router) {
 	router.get('/posts/getAllPosts/', posts.getAllPosts);
 	router.post('/posts/getByPostId/:post_id', posts.getByPostId);
 	router.post('/posts/getByUserId/:user_id', posts.getByUserId);
+	router.post('/users/getPostsByUser', check_session, posts.getPostsByUser);
 
 	router.post('/comments/createComment/', comments.createComment);
 	router.get('/comments/getAllComments/', comments.getAllComments);
 	router.post('/comments/getByCommentId/:comment_id', comments.getByCommentId);
 	router.post('/comments/getByPostId/:post_id', comments.getByPostId);
 	router.post('/comments/getByUserId/:user_id', comments.getByUserId);	
+	router.post('/users/getCommentsByUser', check_session, comments.getCommentsByUser);
 
 	router.post('/answers/createAnswer/', answers.createAnswer);
 	router.get('/answers/getAllAnswers/', answers.getAllAnswers);
 	router.post('/answers/getByAnswerId/:answer_id', answers.getByAnswerId);
 	router.post('/answers/getByPostId/:post_id', answers.getByPostId);
 	router.post('/answers/getByUserId/:user_id', answers.getByUserId);	
+	router.post('/users/getAnswersByUser', check_session, answers.getAnswersByUser);
 
 	router.all('*', function (req, res, next) {
 		res.status(404).send({message : 'Nothing to do here.'});
