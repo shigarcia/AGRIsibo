@@ -9,7 +9,6 @@
 }
 
 body {
-	background-image: url("/img/background.jpg");
 	background-position: bottom;
 	background-size: 1700px;
 	background-repeat: no-repeat;
@@ -19,7 +18,7 @@ body {
 .brand-logo {
 	background-color: white;
 	height: 52px;
-	width: 200px;
+	width: 135px;
 	top: 0;
 	margin-left: 5px;
 }
@@ -32,6 +31,10 @@ body {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	margin-bottom: 0;
+}
+
+.hide-on-med-and-down a:hover {
+	border-bottom: 5px solid white;
 }
 
 .top {
@@ -109,16 +112,22 @@ body {
 
 .adminnews,
 .featuredposts,
-.latestposts
+.latestposts,
 {
 	margin-bottom: 2px;
 	padding-left: 5px;
 	border-bottom: 1px #337c2f solid;
+	margin-top: -10px;
+}
+
+.users {
+	margin-top: -15px;
 }
 
 .adminnews:hover,
 .latestposts:hover,
-.featuredposts:hover {
+.featuredposts:hover,
+.users:hover {
 	background-color: #dadada;
 }
 
@@ -128,7 +137,7 @@ body {
 }
 
 .user:link {
-	color: #33ab23;
+	color: #331a98;
 }
 
 .posttitle a:hover,
@@ -138,7 +147,8 @@ body {
 }
 
 .posttitle,
-.question {
+.question,
+ {
 	font-size: 25px;
 	padding: 0;
 	margin-bottom: -15px;
@@ -147,8 +157,7 @@ body {
 }
 
 .datetime,
-.qdatetime,
-.user {
+.qdatetime {
 	margin-left: 10px;
 	font-size: 12px;
 	padding-top: -15px;
@@ -200,7 +209,8 @@ body {
 }
 
 /* Style the tab content */
-.tabcontent {
+.tabcontent,
+.userbody {
     display: none;
     padding: 6px 12px;
     border: 1px solid #337c2f;
@@ -214,7 +224,7 @@ body {
 
 #ask {
 	float: right;
-	margin: 10px;
+	margin: 1%;
 }
 
 #latest h1,
@@ -242,4 +252,55 @@ body {
 #sidebar::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: 1px solid slategrey;
+}
+
+#userbody,
+#postbody {
+	width: 100%;
+	height: auto;
+	margin-top: 2px;
+	border: 1px #337c2f solid;
+	background-color: #b4ceb2;
+}
+
+#userbody h1,
+#postbody h1 {
+	text-align: left;
+	border-bottom: 3px solid #337c2f;
+	padding-bottom: 30px;
+	padding-left: 20px;
+	font: 50px Aliens and Cows;
+	color: black;
+}
+
+.fullname {
+	padding-top: 10px;
+	font-size: 2vw;
+	margin-bottom: -10px;
+	padding-left: 10px;
+	font-family: ;
+}
+
+.uname {
+	font-size: 1.5vw;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.fullname a,
+.uname a {
+	color: #337c2f;
+}
+
+.fullname a:hover,
+.uname a:hover {
+	text-decoration: underline;
+}
+
+.memdate {
+	padding-left: 10px;
+}
+
+.white-text:hover {
+	text-decoration: underline;
 }

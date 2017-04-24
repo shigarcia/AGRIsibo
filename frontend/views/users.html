@@ -1,0 +1,23 @@
+<div class="main">
+	
+	<a class="waves-effect waves-light btn green darken-3" id="ask" href="/ask">Ask Question</a>
+
+	<div class="container" id="userbody">
+		<h1>Users</h1>
+		<div ng-repeat="user in users">
+			<div class="users">
+				<p class="fullname"><a href="/users/?">{{ user.first_name }} {{ user.last_name }}</a>,
+				<a class="uname" href="/users/?">{{ user.username }}</a></p>
+				<p class="memdate">Member since {{ user.memdate | date}}</p>
+			</div>
+		</div>
+	</div>
+
+<footer class="page-footer green darken-3">
+	<div class="footer-copyright">
+		<div class="container">
+            		©2017
+    		<p class="grey-text text-lighten-4"><strong>NOTE:</strong> AGRIsibo is a web application created in partial fulfillment of the requirements for CMSC 100.</p>
+		</div>
+	</div>
+</footer>

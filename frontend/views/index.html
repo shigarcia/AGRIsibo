@@ -1,0 +1,70 @@
+		<div class="main">
+			<div class="container" id="topview">
+				<section class="container" id="overview">
+					<h1><center>{{ title }}</center></h1>
+					 <p>{{ description }}</p>
+					 <p>Do you need help or question about agriculture? Or do you want to help your fellow agriculturists? Join the community; it's easy.</p>
+					<center><a class="waves-effect waves-light btn green darken-3" id="reg" href="/register">Register</a></center>
+				</section>
+				<section class="container" id="sidebar">
+					<h1>Admin Announcements</h1>
+					<div ng-repeat="announcement in announcements">
+						<div class="adminnews">
+							<p class="posttitle"><a href="/posts/?">{{ announcement.title }}</a></p>
+							<p class="datetime">{{ announcement.date | date }} by <a class="user" href="/admins/">{{ announcement.name }}</a></p>
+							<p class="details">{{ announcement.details }}</p>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<div class="container" id="mainposts">
+				<a class="waves-effect waves-light btn green darken-3" id="ask" href="/ask">Ask Question</a>
+
+				<div class="tab" ng-controller="indexController">
+					<button class="tablinks" onclick="openCity(event, 'featured')">Featured</button>
+					<button class="tablinks" onclick="openCity(event, 'latest')" id="defaultOpen">Latest</button>
+				</div>
+			</div>
+
+			<div id="latest" class="tabcontent">
+				<h1>Latest</h1>
+				<div ng-repeat="post in posts">
+					<div class="latestposts">
+						<p class="question"><a href="/posts/?">{{ post.question }}</a></p>
+						<p class="qdatetime">{{ post.date | date}} | {{ post.time }} by <a class="user" href="/users/?">{{ post.name }}</a></p>
+						<p class="qdetails">{{ post.details }}</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="featured" class="tabcontent">
+				<h1>Featured</h1>
+				<div ng-repeat="post in posts">
+					<div class="featuredposts">
+						<p class="question"><a href="/posts/?">{{ post.question }}</a></p>
+						<p class="qdatetime">{{ post.date | date}} | {{ post.time }} by <a class="user" href="/users/?">{{ post.name }}</a></p>
+						<p class="qdetails">{{ post.details }}</p>
+					</div>
+
+				</div>
+			</div>
+			<div class="browse-more">
+				<p><center>Looking for more? Browse the complete list of <a href="#posts">questions</a>.</center></p>
+			</div>
+		</div>
+
+<footer class="page-footer green darken-3">
+	<div class="footer-copyright">
+		<div class="container">
+            		©2017
+    		<p class="grey-text text-lighten-4"><strong>NOTE:</strong> AGRIsibo is a web application created in partial fulfillment of the requirements for CMSC 100.</p>
+		</div>
+	</div>
+</footer>
+
+		<script>
+			document.getElementById("defaultOpen").click();
+		</script>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script> 
+

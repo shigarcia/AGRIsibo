@@ -43,6 +43,16 @@ exports.getByPostId = function(req, res){
 	}) 
 };
 
+exports.getCommentsByUsers = function(req, res) {
+	const query = "SELECT * FROM comments WHERE user_id = ?";
+	const payload = [req.body.user_id];
+
+	db.query(query, payload, function(err, result) {
+		if (err) res.send(err);
+		res.status(200).send(result);
+	}); 
+};
+
 exports.getByUserId = function(req, res){
 	const query = "SELECT * FROM comments WHERE user_id = ?";
 	const payload = [req.params.user_id];

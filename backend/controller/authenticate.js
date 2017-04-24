@@ -6,8 +6,8 @@ const db = require(__dirname + '/mysql');
 exports.login = function(req, res, next) {
 
 	function validatelogin() {
-		const query = "SELECT COUNT(*) FROM user_accounts WHERE username = ?";
-		const payload = [req.body.username];
+		const query = "SELECT COUNT(*) FROM user_accounts WHERE email = ?";
+		const payload = [req.body.email];
 		db.query(query, payload, function(err, result) {
 			if (result.length) {
 				checkpassword();
@@ -19,8 +19,8 @@ exports.login = function(req, res, next) {
 	}
 
 	function checkpassword(){
-		const query = "SELECT * FROM user_accounts where username = ? AND password = ? LIMIT 1";
-		const payload = [req.body.username, req.body.password];
+		const query = "SELECT * FROM user_accounts where email = ? AND password = ? LIMIT 1";
+		const payload = [req.body.email, req.body.password];
 
 		db.query(query, payload, function(err, result){
 			if (result[0].count === 1) {
