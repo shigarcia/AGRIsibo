@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+
+	<head>
+		<title>AGRIsibo</title>
+		<link href="css/index.css" rel="stylesheet" />
+	    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/materialize/css/materialize.min.css"  media="screen,projection"/>
+	</head>
+
+	<body>
+		<div class="top">
+			<div class="navbar-fixed">
+				<nav>
+					<div class="nav-wrapper">
+						<a href="#!" class="brand-logo"><img src="img/logo.png" height="50px"></a>
+						<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+						<ul class="right hide-on-med-and-down">
+							<li><a href="#">Home</a></li>
+							<li><a href="/users">Users</a></li>
+							<li><a href="/login">Logout</a></li>
+							<li><a href="/settings">Settings</a></li>
+							<li>
+								<div class="input-field green darken-3">
+							        <input id="search" type="search" required>
+							        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+							        <i class="material-icons">close</i>
+						        </div>
+							</li>
+						</ul>
+						<ul class="side-nav" id="mobile-demo">
+							<li><a href="#">Home</a></li>
+							<li><a href="/users">Users</a></li>
+							<li><a href="/login">Logout</a></li>
+							<li><a href="/settings">Settings</a></li>
+							<li>
+								<div class="input-field green darken-3">
+							        <input id="search" type="search" required>
+							        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+							        <i class="material-icons">close</i>
+						        </div>
+							</li>
+						</ul>
+						
+			      </div>
+			    </nav>
+			</div>
+		</div>
+
+		<div class="main">
+			<div class="container" id="topview">
+				<section class="container" id="overview">
+					<h1><center>AGRIsibo</center></h1>
+					 <p>AGRIsibo is a web-based crowdsourcing application for Filipino agriculturists and farmers for an agrisibo and progresibong pagsasaka.</p>
+				</section>
+				<section class="container" id="sidebar">
+					<h1>Admin Announcements</h1>
+					<div ng-repeat="announcement in announcements">
+						<div class="adminnews">
+							<p class="posttitle"><a href="/posts/?">{{ announcement.title }}</a></p>
+							<p class="datetime">{{ announcement.date | date}} | {{ announcement.time | time }} by <a class="user" href="/users/?">{{ announcement.name }}</a></p>
+							<p class="details">{{ announcement.details }}</p>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<div class="container" id="mainposts">
+				<a class="waves-effect waves-light btn green darken-3" id="ask" href="/ask">Ask Question</a>
+
+				<div class="tab" ng-controller="indexController">
+					<button class="tablinks" onclick="openCity(event, 'featured')">Featured</button>
+					<button class="tablinks" onclick="openCity(event, 'latest')" id="defaultOpen">Latest</button>
+				</div>
+			</div>
+
+			<div id="latest" class="tabcontent">
+				<h1>Latest</h1>
+				<div ng-repeat="post in posts">
+					<div class="latestposts">
+						<p class="question"><a href="/posts/?">{{ post.question }}</a></p>
+						<p class="qdatetime">{{ post.date | date}} | {{ post.time | time }} by <a class="user" href="/users/?">{{ post.name }}</a></p>
+						<p class="qdetails">{{ post.details }}</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="featured" class="tabcontent">
+				<h1>Featured</h1>
+				<div ng-repeat="post in posts">
+					<div class="featuredposts">
+						<p class="question"><a href="/posts/?">{{ post.question }}</a></p>
+						<p class="qdatetime">{{ post.date | date}} | {{ post.time | time }} by <a class="user" href="/users/?">{{ post.name }}</a></p>
+						<p class="qdetails">{{ post.details }}</p>
+					</div>
+
+				</div>
+			</div>
+			<div class="browse-more">
+				<p><center>Looking for more? Browse the complete list of <a href="/posts">questions</a>.</center></p>
+			</div>
+		</div>
+
+		 <footer class="page-footer green darken-3">
+         	<div class="footer-copyright">
+            	<div class="container">
+            		©2017
+            		<p class="grey-text text-lighten-4"><strong>NOTE:</strong> AGRIsibo is a web application created in partial fulfillment of the requirements for CMSC 100.</p>
+            	</div>
+         	</div>
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script type="text/javascript" src="css/materialize/js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/animation.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script> 
+		<script>
+			$( document ).ready(function() {
+		      $(".button-collapse").sideNav();
+		    });
+		</script>
+		<!-- Module -->
+		<!-- Controller -->
+
+	</body>
+
+</html>

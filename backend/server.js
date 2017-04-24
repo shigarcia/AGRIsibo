@@ -3,6 +3,7 @@
 const body_parser   = require('body-parser');   
 const express       = require('express');
 const session       = require('express-session');
+const path			= require("path");
 
 let app = express();
 
@@ -17,6 +18,10 @@ app.use(session({
         maxAge: 60 * 1000 * 60 * 100  // Equivalent to 2 hours
     }
 }));
+
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname + '/../frontend/index.html'));
+});
 
 app.use(body_parser.urlencoded({extended: true}));
 app.use(body_parser.json());
